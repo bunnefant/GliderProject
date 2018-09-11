@@ -10,15 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Aery32 implements Configuration {
-    private Robot robot;
     private String path = "";
-    public Aery32() {
-        try {
-            robot = new Robot();
-        } catch (AWTException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void createFile(String fileName, Glider glider) {
         Path path = Paths.get(this.path + "/" + fileName);
@@ -49,10 +41,10 @@ public class Aery32 implements Configuration {
         list.add("\"Stabilizer Root Chord (cm)\"" + "," + Double.toString(glider.getStabalizer().getRootChord()));
         list.add("\"Stabilizer LE Angle (deg.)\"" + Double.toString(glider.getStabalizer().getLeadingEdgeSweepAngle()));
         list.add("\"Stabilizer Sweep Type\",2");
-        list.add("\"Vertical Tail Height (cm)\"" + "," + Double.toString(glider.getVerticalStablizer().getHeight()));
-        list.add("\"Vertical Tail Root Chord (cm)\"" + "," + Double.toString(glider.getVerticalStablizer().getRootChord()));
-        list.add("\"Vertical Tail Taper Ratio\"" + "," + Double.toString(glider.getVerticalStablizer().getTaperRatio()));
-        list.add("\"Vertical Tail LE Angle (deg.)\"" + Double.toString(glider.getVerticalStablizer().getLeadingEdgeSweepAngle()));
+        list.add("\"Vertical Tail Height (cm)\"" + "," + Double.toString(glider.getVerticalStabilizer().getHeight()));
+        list.add("\"Vertical Tail Root Chord (cm)\"" + "," + Double.toString(glider.getVerticalStabilizer().getRootChord()));
+        list.add("\"Vertical Tail Taper Ratio\"" + "," + Double.toString(glider.getVerticalStabilizer().getTaperRatio()));
+        list.add("\"Vertical Tail LE Angle (deg.)\"" + Double.toString(glider.getVerticalStabilizer().getLeadingEdgeSweepAngle()));
         list.add("\"Vertical Tail Sweep Type\",2");
         list.add("\"configuration filename\",\"test.cfg\"");
         list.add("\"configuration name\",\"36 inch spruce and 36 inch balsa\"");
@@ -66,7 +58,7 @@ public class Aery32 implements Configuration {
         list.add("\"fuselage depth (side) (cm)\"" + "," + Double.toString(Configuration.FUSELAGE_DEPTH));
         list.add("\"max nose mass (grams)\"" + "," + Double.toString(glider.getNoseMass()));
         list.add("\"airfoil section lift coefficient\"" + "," + Double.toString(5.7));
-        list.add("\"air density (kg/m^3)\"" + "," + Double.toString(Configuration.AIR_DESNITY));
+        list.add("\"air density (kg/m^3)\"" + "," + Double.toString(Configuration.AIR_DENSITY));
         return list;
     }
 }

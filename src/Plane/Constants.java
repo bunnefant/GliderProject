@@ -1,0 +1,42 @@
+package Plane;
+
+public interface Constants {
+    double FUESALAGE_LENGTH_MAX = 60;
+    double FUESALAGE_LENGTH_MIN = 10;
+    double WING_LOCATION_MAX = 10;
+    double WING_LOCATION_MIN = 5;
+    double STABALIZER_LOCATION_MAX = 10;
+    double STABALIZER_LOCATION_MIN = 5;
+    double VERTICAL_STABALIZER_LOCATION_MAX = 10;
+    double VERTICAL_STABALIZER_LOCATION_MIN = 5;
+    double NOSE_MASS_MAX = 10;
+    double NOSE_MASS_MIN = 5;
+
+    double WING_SPAN_MAX = 10;
+    double WING_SPAN_MIN = 5;
+    double WING_TAPER_RATIO_MAX = 1;
+    double WING_TAPER_RATION_MIN = 0;
+    double WING_ROOT_CHORD_MAX = 10;
+    double WING_ROOT_CHORD_MIN = 5;
+    double WING_LSEA_MAX = 10;
+    double WING_LSEA_MIN = 5;
+
+    double STABALIZER_SPAN_MAX = 10;
+    double STABALIZER_SPAN_MIN = 5;
+    double STABALIZER_TAPER_RATIO_MAX = 1;
+    double STABALIZER_TAPER_RATION_MIN = 0;
+    double STABALIZER_ROOT_CHORD_MAX = 10;
+    double STABALIZER_ROOT_CHORD_MIN = 5;
+    double STABALIZER_LSEA_MAX = 10;
+    double STABALIZER_LSEA_MIN = 5;
+
+    double VSTABALIZER_HEIGHT_MAX = 10;
+    double VSTABALIZER_HEIGHT_MIN = 5;
+    double VSTABALIZER_TAPER_RATIO_MAX = 1;
+    double VSTABALIZER_TAPER_RATION_MIN = 0;
+    double VSTABALIZER_ROOT_CHORD_MAX = 10;
+    double VSTABALIZER_ROOT_CHORD_MIN = 5;
+    double VSTABALIZER_LSEA_MAX = 10;
+    double VSTABALIZER_LSEA_MIN = 5;
+
+}

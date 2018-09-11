@@ -1,12 +1,12 @@
 package Plane;
 
-public class VerticalStablizer {
+public class VerticalStabilizer {
     private double height;
     private double rootChord;
     private double taperRatio;
     private double leadingEdgeSweepAngle;
 
-    public VerticalStablizer(double height, double rootChord, double taperRatio, double leadingEdgeSweepAngle) {
+    public VerticalStabilizer(double height, double rootChord, double taperRatio, double leadingEdgeSweepAngle) {
         this.height = height;
         this.rootChord = rootChord;
         this.taperRatio = taperRatio;
