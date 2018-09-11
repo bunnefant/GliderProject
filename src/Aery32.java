@@ -1,8 +1,6 @@
 import Plane.Glider;
 
 import java.awt.*;
-
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
