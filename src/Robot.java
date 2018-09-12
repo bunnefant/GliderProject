@@ -5,13 +5,15 @@ import java.awt.event.KeyEvent;
 public class Robot {
 
     private static java.awt.Robot robot;
-    public Robot () {
+
+    static {
         try {
             robot = new java.awt.Robot();
         } catch (AWTException e) {
             e.printStackTrace();
         }
     }
+
     public static void goToPoint(Point point) {
         robot.mouseMove(point.getX(), point.getY());
     }
@@ -20,6 +22,12 @@ public class Robot {
     }
     public static void leftClick () {
         robot.mousePress(InputEvent.BUTTON1_MASK);
+        robot.mouseRelease(InputEvent.BUTTON1_MASK);
+    }
+    public static void leftPress () {
+        robot.mousePress(InputEvent.BUTTON1_MASK);
+    }
+    public static void leftRelease () {
         robot.mouseRelease(InputEvent.BUTTON1_MASK);
     }
     public static void rightClick () {
@@ -40,6 +48,12 @@ public class Robot {
             robot.keyPress(keyCode);
             robot.keyRelease(keyCode);
         }
+    }
+    public static void cntrlC () {
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_C);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyRelease(KeyEvent.VK_C);
     }
 
 

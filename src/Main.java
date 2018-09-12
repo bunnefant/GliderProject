@@ -20,6 +20,12 @@ public class Main implements Constants, Configuration{
             Robot.enter();
             Robot.goToPoint(Configuration.OK_ERROR_MESSAGE);
             Robot.goToPoint(Configuration.INFO_BUTTON);
+            Robot.goToPoint(Configuration.COPYSTART_FOR_INFO);
+            Robot.leftPress();
+            Robot.goToPoint(Configuration.COPY_END);
+            sleep(500);
+            Robot.leftRelease();
+
             glider.setNoseMass(glider.getNoseMass() + increment);
             glider.setFuesalgeLength(glider.getFuesalgeLength() + increment);
             glider.setWingLocation(glider.getWingLocation() + increment);
