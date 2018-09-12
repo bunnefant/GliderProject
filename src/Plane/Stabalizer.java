@@ -61,4 +61,11 @@ public class Stabalizer {
             }
         }
     }
+
+    public void increment(double i1, double i2, double i3, double i4) {
+        setSpan(getSpan() + i1);
+        setTaperRatio(getTaperRatio() + i2);
+        setRootChord(getRootChord() + i3);
+        setLeadingEdgeSweepAngle(getLeadingEdgeSweepAngle() + i4);
+    }
 }

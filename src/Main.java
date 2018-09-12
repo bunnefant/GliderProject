@@ -20,6 +20,14 @@ public class Main implements Constants, Configuration{
             Robot.enter();
             Robot.goToPoint(Configuration.OK_ERROR_MESSAGE);
             Robot.goToPoint(Configuration.INFO_BUTTON);
+            glider.setNoseMass(glider.getNoseMass() + increment);
+            glider.setFuesalgeLength(glider.getFuesalgeLength() + increment);
+            glider.setWingLocation(glider.getWingLocation() + increment);
+            glider.setStabalizerLocation(glider.getStabalizerLocation() + increment);
+            glider.setVerticalStabalizerLocation(glider.getVerticalStabalizerLocation() + increment);
+            glider.getWings().increment(increment, increment, increment, increment);
+            glider.getVerticalStabilizer().increment(increment, increment, increment, increment);
+            glider.getStabalizer().increment(increment, increment, increment, increment);
             update(max);
         }
     }
