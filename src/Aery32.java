@@ -2,10 +2,12 @@ import Plane.Glider;
 
 import java.awt.*;
 import java.io.IOException;
+import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +15,11 @@ public class Aery32 implements Configuration {
     private String path = "";
 
     public void createFile(String fileName, Glider glider) {
+        try {
+            FileChannel.open(Paths.get(path + "/" + fileName), StandardOpenOption.WRITE).truncate(0).close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Path path = Paths.get(this.path + "/" + fileName);
         try {
             Files.write(path, getConfiguration(glider), Charset.forName("UTF-8"));
@@ -23,6 +30,7 @@ public class Aery32 implements Configuration {
 
 
     private List<String> getConfiguration (Glider glider) {
+        System.out.println(glider.getFuesalgeLength() + "THIS IS TEST");
         List<String> list = new ArrayList<String>();
         list.add("\"Glider Name\",\"Sample glider with a canard configuration\"");
         list.add("\"1 Piece of Wood\",-1");

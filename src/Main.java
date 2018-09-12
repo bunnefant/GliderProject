@@ -13,12 +13,12 @@ public class Main implements Constants, Configuration{
     static Glider bestCd = new Glider();
     static Glider bestAngle = new Glider();
     static Glider bestEval = new Glider();
-    static double increment = 0.1;
+    static double incrementPercent = 0.1;
     static int designNumber = 0;
     static boolean max = false;
     public static void main(String[] args) {
         sleep(5);
-        while (!max) {
+        while (designNumber < 10) {
             aery32.createFile(fileName, glider);
             String output = getGliderOutput(fileName);
             getBestDesigns(output);
@@ -28,7 +28,6 @@ public class Main implements Constants, Configuration{
             max = glider.isAtMax();
         }
         printBest();
-
     }
 
     private static void addToDocs (String output) {
@@ -91,14 +90,71 @@ public class Main implements Constants, Configuration{
     }
 
     private static void increment () {
-        glider.setNoseMass(glider.getNoseMass() + increment);
-        glider.setFuesalgeLength(glider.getFuesalgeLength() + increment);
-        glider.setWingLocation(glider.getWingLocation() + increment);
-        glider.setStabalizerLocation(glider.getStabalizerLocation() + increment);
-        glider.setVerticalStabalizerLocation(glider.getVerticalStabalizerLocation() + increment);
-        glider.getWings().increment(increment, increment, increment, increment);
-        glider.getVerticalStabilizer().increment(increment, increment, increment, increment);
-        glider.getStabalizer().increment(increment, increment, increment, increment);
+        glider.setNoseMass(glider.getNoseMass() + (Constants.NOSE_MASS_MAX * incrementPercent));
+        if (glider.getNoseMass() == Constants.NOSE_MASS_MAX) {
+            glider.setFuesalgeLength(glider.getFuesalgeLength() + (Constants.FUESALAGE_LENGTH_MAX * incrementPercent));
+            glider.setNoseMass(Constants.NOSE_MASS_MIN);
+        }
+        if (glider.getFuesalgeLength() == Constants.FUESALAGE_LENGTH_MAX) {
+            glider.setWingLocation(glider.getWingLocation() + (Constants.WING_LOCATION_MAX * incrementPercent));
+            glider.setFuesalgeLength(Constants.FUESALAGE_LENGTH_MIN);
+        }
+        if (glider.getWingLocation() == Constants.WING_LOCATION_MAX) {
+            glider.setStabalizerLocation(glider.getStabalizerLocation() + (Constants.STABALIZER_LOCATION_MAX * incrementPercent));
+            glider.setWingLocation(Constants.WING_LOCATION_MIN);
+        }
+        if (glider.getStabalizerLocation() == Constants.STABALIZER_LOCATION_MAX) {
+            glider.setVerticalStabalizerLocation(glider.getVerticalStabalizerLocation() + (Constants.VERTICAL_STABALIZER_LOCATION_MAX * incrementPercent));
+            glider.setStabalizerLocation(Constants.STABALIZER_LOCATION_MIN);
+        }
+        if (glider.getVerticalStabalizerLocation() == Constants.VERTICAL_STABALIZER_LOCATION_MAX) {
+            glider.getWings().setSpan(glider.getWings().getSpan() + (Constants.WING_SPAN_MAX * incrementPercent));
+            glider.setVerticalStabalizerLocation(Constants.VERTICAL_STABALIZER_LOCATION_MIN);
+        }
+        if (glider.getWings().getSpan() == Constants.WING_SPAN_MAX) {
+            glider.getWings().setTaperRatio(glider.getWings().getTaperRatio() + (Constants.WING_TAPER_RATIO_MAX * incrementPercent));
+            glider.getWings().setSpan(Constants.WING_SPAN_MIN);
+        }
+        if (glider.getWings().getTaperRatio() == Constants.WING_TAPER_RATIO_MAX) {
+            glider.getWings().setLeadingEdgeSweepAngle(glider.getWings().getLeadingEdgeSweepAngle() + (Constants.WING_LSEA_MAX * incrementPercent));
+            glider.getWings().setTaperRatio(Constants.WING_TAPER_RATION_MIN);
+        }
+        if (glider.getWings().getLeadingEdgeSweepAngle() == Constants.WING_LSEA_MAX) {
+            glider.getWings().setRootChord(glider.getWings().getRootChord() + (Constants.WING_ROOT_CHORD_MAX* incrementPercent));
+            glider.getWings().setLeadingEdgeSweepAngle(Constants.WING_LSEA_MIN);
+        }
+        if (glider.getWings().getRootChord() == Constants.WING_ROOT_CHORD_MAX) {
+            glider.getStabalizer().setSpan(glider.getStabalizer().getSpan() + (Constants.STABALIZER_SPAN_MAX * incrementPercent));
+            glider.getWings().setRootChord(Constants.WING_ROOT_CHORD_MIN);
+        }
+        if (glider.getStabalizer().getSpan() == Constants.STABALIZER_SPAN_MAX) {
+            glider.getStabalizer().setTaperRatio(glider.getStabalizer().getTaperRatio() + (Constants.STABALIZER_TAPER_RATIO_MAX * incrementPercent));
+            glider.getStabalizer().setSpan(Constants.STABALIZER_SPAN_MIN);
+        }
+        if (glider.getStabalizer().getTaperRatio() == Constants.STABALIZER_TAPER_RATIO_MAX) {
+            glider.getStabalizer().setLeadingEdgeSweepAngle(glider.getStabalizer().getLeadingEdgeSweepAngle() + (Constants.STABALIZER_LSEA_MAX * incrementPercent));
+            glider.getStabalizer().setTaperRatio(Constants.STABALIZER_TAPER_RATION_MIN);
+        }
+        if (glider.getStabalizer().getLeadingEdgeSweepAngle() == Constants.STABALIZER_LSEA_MAX) {
+            glider.getStabalizer().setRootChord(glider.getStabalizer().getRootChord() + (Constants.STABALIZER_ROOT_CHORD_MAX* incrementPercent));
+            glider.getStabalizer().setLeadingEdgeSweepAngle(Constants.STABALIZER_LSEA_MIN);
+        }
+        if (glider.getStabalizer().getRootChord() == Constants.STABALIZER_ROOT_CHORD_MAX) {
+            glider.getVerticalStabilizer().setHeight(glider.getVerticalStabilizer().getHeight() + (Constants.VSTABALIZER_HEIGHT_MAX * incrementPercent));
+            glider.getStabalizer().setRootChord(Constants.STABALIZER_ROOT_CHORD_MIN);
+        }
+        if (glider.getVerticalStabilizer().getHeight() == Constants.VSTABALIZER_HEIGHT_MAX) {
+            glider.getVerticalStabilizer().setTaperRatio(glider.getVerticalStabilizer().getTaperRatio() + (Constants.VSTABALIZER_TAPER_RATIO_MAX * incrementPercent));
+            glider.getVerticalStabilizer().setHeight(Constants.VSTABALIZER_HEIGHT_MIN);
+        }
+        if (glider.getVerticalStabilizer().getTaperRatio() == Constants.VSTABALIZER_TAPER_RATIO_MAX) {
+            glider.getVerticalStabilizer().setLeadingEdgeSweepAngle(glider.getVerticalStabilizer().getLeadingEdgeSweepAngle() + (Constants.VSTABALIZER_LSEA_MAX * incrementPercent));
+            glider.getVerticalStabilizer().setTaperRatio(Constants.VSTABALIZER_TAPER_RATION_MIN);
+        }
+        if (glider.getVerticalStabilizer().getLeadingEdgeSweepAngle() == Constants.VSTABALIZER_LSEA_MAX) {
+            glider.getVerticalStabilizer().setRootChord(glider.getVerticalStabilizer().getRootChord() + (Constants.VSTABALIZER_ROOT_CHORD_MAX * incrementPercent));
+            glider.getVerticalStabilizer().setLeadingEdgeSweepAngle(Constants.VSTABALIZER_LSEA_MIN);
+        }
     }
 
     private static String getGliderOutput (String fileName) {
