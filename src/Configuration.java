@@ -13,8 +13,13 @@ public interface Configuration {
     Point OPEN_BUTTON_UNDER_FILE = new Point(51,98);
     Point OK_ERROR_MESSAGE = new Point(995,619);
     Point OPEN_FILE_EXPLORER = new Point(756,580);
-    Point INFO_BUTTON = new Point(864,139);
-    Point COPYSTART_FOR_INFO = new Point(864, 139);
-    Point COPY_END = new Point(930, 444);
+    Point FILE_TYPE_DROPDOWN = new Point(895,524);
+    Point ALL_FILE_TYPES = new Point(873,578);
+    Point EXPLORER_TEXTBAR = new Point(484,531);
+    Point INFO_BUTTON = new Point(1698,71);
+    Point COPYSTART_FOR_INFO = new Point(53, 144);
+    Point COPY_END_1 = new Point(145, 272);
+    Point COPY_END_2 = new Point(422, 362);
+    Point COPY_END_3 = new Point(419, 442);
 
 }

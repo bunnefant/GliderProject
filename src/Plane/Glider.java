@@ -27,12 +27,17 @@ public class Glider implements Constants {
         this.stabalizer = stabalizer;
         this.verticalStabilizer = verticalStabilizer;
     }
+
     public Glider () {
-        new Glider(20, Constants.FUESALAGE_LENGTH_MIN, Constants.WING_LOCATION_MIN,
-                Constants.STABALIZER_LOCATION_MIN, Constants.VERTICAL_STABALIZER_LOCATION_MIN, Constants.NOSE_MASS_MIN,
-        new Wings(Constants.WING_SPAN_MIN, Constants.WING_ROOT_CHORD_MIN, Constants.WING_TAPER_RATION_MIN, Constants.WING_LSEA_MIN),
-        new Stabalizer(Constants.STABALIZER_SPAN_MIN, Constants.STABALIZER_ROOT_CHORD_MIN, Constants.STABALIZER_TAPER_RATION_MIN, Constants.STABALIZER_LSEA_MIN),
-        new VerticalStabilizer(Constants.VSTABALIZER_HEIGHT_MIN, Constants.VSTABALIZER_ROOT_CHORD_MIN, Constants.VSTABALIZER_TAPER_RATION_MIN, Constants.VSTABALIZER_LSEA_MIN));
+        this.velocity = 20;
+        this.fuesalgeLength = Constants.FUESALAGE_LENGTH_MIN;
+        this.wingLocation = Constants.WING_LOCATION_MIN;
+        this.stabalizerLocation = Constants.STABALIZER_LOCATION_MIN;
+        this.verticalStabalizerLocation = Constants.VERTICAL_STABALIZER_LOCATION_MIN;
+        this.noseMass =  Constants.NOSE_MASS_MIN;
+        this.wings = new Wings(Constants.WING_SPAN_MIN, Constants.WING_ROOT_CHORD_MIN, Constants.WING_TAPER_RATION_MIN, Constants.WING_LSEA_MIN);
+        this.stabalizer = new Stabalizer(Constants.STABALIZER_SPAN_MIN, Constants.STABALIZER_ROOT_CHORD_MIN, Constants.STABALIZER_TAPER_RATION_MIN, Constants.STABALIZER_LSEA_MIN);
+        this.verticalStabilizer = new VerticalStabilizer(Constants.VSTABALIZER_HEIGHT_MIN, Constants.VSTABALIZER_ROOT_CHORD_MIN, Constants.VSTABALIZER_TAPER_RATION_MIN, Constants.VSTABALIZER_LSEA_MIN);
     }
 
     public double getVelocity() {
@@ -161,5 +166,27 @@ public class Glider implements Constants {
                 verticalStabilizer.getRootChord() == Constants.VSTABALIZER_ROOT_CHORD_MAX &&
                 verticalStabilizer.getLeadingEdgeSweepAngle() == Constants.VSTABALIZER_LSEA_MAX &&
                 verticalStabilizer.getTaperRatio() == Constants.VSTABALIZER_TAPER_RATIO_MAX;
+    }
+
+    public String[] string () {
+        return new String[] {
+                "Nose Mass: " + Double.toString(noseMass),
+                "Fuesalge Length: " + Double.toString(fuesalgeLength),
+                "Wing Location: " + Double.toString(wingLocation),
+                "Stabalizer Location: " + Double.toString(stabalizerLocation),
+                "VStabalizer Location: " + Double.toString(verticalStabalizerLocation),
+                "Wing Span: " + Double.toString(getWings().getSpan()),
+                "Wing Taper Ratio: " + Double.toString(getWings().getTaperRatio()),
+                "Wing LESA: " + Double.toString(getWings().getLeadingEdgeSweepAngle()),
+                "Wing Root Chord: " + Double.toString(getWings().getRootChord()),
+                "Stabliazer Span: " + Double.toString(getStabalizer().getSpan()),
+                "Stabliazer Taper Ratio: " + Double.toString(getStabalizer().getTaperRatio()),
+                "Stabliazer LESA: " + Double.toString(getStabalizer().getLeadingEdgeSweepAngle()),
+                "Stabliazer Root Chord: " + Double.toString(getStabalizer().getRootChord()),
+                "Vertical Tail Height:" + Double.toString(getVerticalStabilizer().getHeight()),
+                "Vertical Tail Root Chord:" + Double.toString(getVerticalStabilizer().getRootChord()),
+                "Vertical Tail Taper Ratio:" + Double.toString(getVerticalStabilizer().getTaperRatio()),
+                "Vertical Tail Leading Edge Sweep Angle:" + Double.toString(getVerticalStabilizer().getLeadingEdgeSweepAngle())
+        };
     }
 }

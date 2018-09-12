@@ -34,6 +34,10 @@ public class Robot {
         robot.mousePress(InputEvent.BUTTON2_MASK);
         robot.mouseRelease(InputEvent.BUTTON2_MASK);
     }
+
+    public static void scroll () {
+        robot.mouseWheel(100);
+    }
     public static void enter () {
         robot.keyPress(KeyEvent.VK_ENTER);
         robot.keyRelease(KeyEvent.VK_ENTER);
@@ -49,6 +53,22 @@ public class Robot {
             robot.keyRelease(keyCode);
         }
     }
+
+    public static void fly () {
+        robot.keyPress(KeyEvent.VK_F3);
+        robot.keyRelease(KeyEvent.VK_F3);
+    }
+
+    public static void pressShiftDown() {
+        robot.keyPress(KeyEvent.VK_SHIFT);
+        robot.keyPress(KeyEvent.VK_RIGHT);
+    }
+
+    public static void releaseShiftDown() {
+        robot.keyRelease(KeyEvent.VK_SHIFT);
+        robot.keyRelease(KeyEvent.VK_RIGHT);
+    }
+
     public static void cntrlC () {
         robot.keyPress(KeyEvent.VK_CONTROL);
         robot.keyPress(KeyEvent.VK_C);
