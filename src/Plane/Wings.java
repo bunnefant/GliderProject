@@ -1,6 +1,6 @@
 package Plane;
 
-public class Wings {
+public class Wings implements Constants {
     private double span;
     private double rootChord;
     private double taperRatio;
@@ -43,5 +43,22 @@ public class Wings {
 
     public void setLeadingEdgeSweepAngle(double leadingEdgeSweepAngle) {
         this.leadingEdgeSweepAngle = leadingEdgeSweepAngle;
+    }
+
+    public void update (boolean max) {
+        if (!max) {
+            if (getSpan() == Constants.WING_SPAN_MAX) {
+                setSpan(Constants.WING_SPAN_MIN);
+            }
+            if (getTaperRatio() == Constants.WING_TAPER_RATIO_MAX) {
+                setTaperRatio(Constants.WING_TAPER_RATION_MIN);
+            }
+            if (getLeadingEdgeSweepAngle() == Constants.WING_LSEA_MAX) {
+                setLeadingEdgeSweepAngle(Constants.WING_LSEA_MIN);
+            }
+            if (getRootChord() == Constants.WING_ROOT_CHORD_MAX) {
+                setRootChord(Constants.WING_ROOT_CHORD_MIN);
+            }
+        }
     }
 }

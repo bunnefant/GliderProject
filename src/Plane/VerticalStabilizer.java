@@ -1,6 +1,6 @@
 package Plane;
 
-public class VerticalStabilizer {
+public class VerticalStabilizer implements Constants{
     private double height;
     private double rootChord;
     private double taperRatio;
@@ -43,5 +43,22 @@ public class VerticalStabilizer {
 
     public void setLeadingEdgeSweepAngle(double leadingEdgeSweepAngle) {
         this.leadingEdgeSweepAngle = leadingEdgeSweepAngle;
+    }
+
+    public void update (boolean max) {
+        if (!max) {
+            if (getHeight() == Constants.VSTABALIZER_HEIGHT_MAX) {
+                setHeight(Constants.VSTABALIZER_HEIGHT_MIN);
+            }
+            if (getTaperRatio() == Constants.VSTABALIZER_TAPER_RATIO_MAX) {
+                setTaperRatio(Constants.VSTABALIZER_TAPER_RATION_MIN);
+            }
+            if (getLeadingEdgeSweepAngle() == Constants.VSTABALIZER_LSEA_MAX) {
+                setLeadingEdgeSweepAngle(Constants.VSTABALIZER_LSEA_MIN);
+            }
+            if (getRootChord() == Constants.VSTABALIZER_ROOT_CHORD_MAX) {
+                setRootChord(Constants.VSTABALIZER_ROOT_CHORD_MIN);
+            }
+        }
     }
 }
