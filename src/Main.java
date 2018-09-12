@@ -9,13 +9,13 @@ public class Main implements Constants, Configuration{
     private static Aery32 aery32 = new Aery32();
     private static Glider glider = new Glider();
     private static String fileName = "glider.txt";
-    static String bestCdOutput, bestAngleOutput, bestEvalOutput;
-    static Glider bestCd = new Glider();
-    static Glider bestAngle = new Glider();
-    static Glider bestEval = new Glider();
-    static double incrementPercent = 0.1;
-    static int designNumber = 0;
-    static boolean max = false;
+    private static String bestCdOutput, bestAngleOutput, bestEvalOutput;
+    private static Glider bestCd = new Glider();
+    private static Glider bestAngle = new Glider();
+    private static Glider bestEval = new Glider();
+    private static double incrementPercent = 0.1;
+    private static int designNumber = 0;
+    private static boolean max = false;
     public static void main(String[] args) {
         sleep(5);
         while (designNumber < 10) {
@@ -25,7 +25,7 @@ public class Main implements Constants, Configuration{
             addToDocs(output);
             increment();
             update(max);
-            max = glider.isAtMax();
+            max = glider.isAtMax2();
         }
         printBest();
     }
@@ -155,6 +155,8 @@ public class Main implements Constants, Configuration{
             glider.getVerticalStabilizer().setRootChord(glider.getVerticalStabilizer().getRootChord() + (Constants.VSTABALIZER_ROOT_CHORD_MAX * incrementPercent));
             glider.getVerticalStabilizer().setLeadingEdgeSweepAngle(Constants.VSTABALIZER_LSEA_MIN);
         }
+
+
     }
 
     private static String getGliderOutput (String fileName) {

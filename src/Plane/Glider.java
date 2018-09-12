@@ -168,6 +168,10 @@ public class Glider implements Constants {
                 verticalStabilizer.getTaperRatio() == Constants.VSTABALIZER_TAPER_RATIO_MAX;
     }
 
+    public boolean isAtMax2 () {
+        return getVerticalStabilizer().getRootChord() == Constants.VSTABALIZER_ROOT_CHORD_MAX;
+    }
+
     public String[] string () {
         return new String[] {
                 "Nose Mass: " + Double.toString(noseMass),
